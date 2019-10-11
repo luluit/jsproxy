@@ -12,18 +12,18 @@ jsproxy_config({
 
   // 节点配置
   node_map: {
-    'demo-hk': {
+    'demo': {
       label: 'cloudfare演示节点',
       lines: {
         // 主机:权重
-        'b.007.workers.dev': 1,
+        'node-cfworker-2.etherdream.com': 4,
       }
     },
     'mysite': {
       label: '当前站点',
       lines: {
         [location.host]: 1,
-        'node-cfworker-2.etherdream.com': 4,
+        
 
         // 免费版（低权重，分摊一些成本）
         // 每个账号每天 10 万次免费请求，但有频率限制
@@ -55,7 +55,7 @@ jsproxy_config({
    * 默认节点
    */
   node_default: 'mysite',
-  // node_default: /jsproxy-demo\.\w+$/.test(location.host) ? 'demo-hk' : 'mysite',
+  // node_default: /jsproxy-demo\.\w+$/.test(location.host) ? 'demo' : 'mysite',
 
   /**
    * 加速节点
